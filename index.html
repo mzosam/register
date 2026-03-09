@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="Style/Style.css">
+</head>
+
+<body>
+    <div class="container navbar mb-5">
+        <img src="Images/big_5_logo.png" alt="">
+        <button>Search</button>
+    </div>
+
+    <div class="container">
+        <div class="group">
+            <div class="banner">
+                <p>Meet <br> <span>best of durban</span> autobody repaire</p>
+                <img src="Images/IMG_3770.JPG">
+            </div>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <h1>Visitors Register</h1>
+
+                <input type="hidden" name="access_key" value="3622e100-8ad1-4fe1-a7fe-0353246bc6b7">
+                <div class="form-floating mb-4">
+                    <input type="text" name="First Name" placeholder="John" class="form-control form-control-lg">
+                    <label>First Name</label>
+                </div>
+
+                <div class="form-floating mb-4">
+                    <input type="text" name="Last Name" placeholder="Smith" class="form-control form-control-lg">
+                    <label>Last Name</label>
+                </div>
+
+                <div class="input-group mb-4">
+                    <div class="input-group-text">+27</div>
+                    <input type="text" name="Contact" class="form-control form-control-lg">
+                </div>
+
+                <div class="form-floating mb-4">
+                    <input type="text" name="Email" placeholder="Sam@bbigfive.durban" class="form-control form-control-lg">
+                    <label>Email</label>
+                </div>
+                
+                <div class="form-floating mb-4">
+                    <input type="datetime-local" name="Date"  class="form-control form-control-lg">
+                    <label>Date</label>
+                </div>
+                
+                <Select name="Reason for Visit" class="form-select form-select-lg mb-4">
+                    <option value="" selected></option>
+                    <option value="Visit">Visit</option>
+                    <option value="Book in">Book in</option>
+                    <option value="Quote">Quote</option>
+                    <option value="Fetch">Fetch the Car</option>
+                    <option value="Enquiries">Enquiries</option>
+                    <option value="Delivery">Delivery</option>
+                    <option value="Appointment">Appointment</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Other">Other</option>
+                </Select>
+                <button type="submit" class="btn btn-primary w-100 btn-lg">Submit</button>
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>
