@@ -1,6 +1,6 @@
 @media (max-width: 480px) {
     body{
-        padding: min(3em,5%) !important;
+        padding: min(1em,3%) !important;
     }
     .navbar{
         padding: 0 10px !important;
