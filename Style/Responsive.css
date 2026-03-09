@@ -9,7 +9,7 @@
         flex-direction: column;
     }
     .container:nth-child(2){
-        overflow: auto !important;
+        /*overflow: auto !important;*/
         scrollbar-width: none !important;
     }
     .group .banner{
