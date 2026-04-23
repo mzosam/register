@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="Style/Style.css">
+
+    <style>
+        html{
+            overflow-x: hidden;
+        }
+        .QR{
+            position: absolute;
+            width: 300px;
+            z-index: 1000;
+            color:#fbfdff;
+            top: 50%;
+            bottom: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            left: -300px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .QR.active{
+            left: 0;
+        }
+
+        .QR img{
+            margin-top: 3%;
+            width: 200px;
+            border-radius: 7px;
+        }
+
+        button{
+            background-color: transparent;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid navbar mb-5">
+        <img src="Images/big_5_logo.png" alt="Red car">
+        <button class="changeIcon"><i class="fa-solid fa-bars" id="menuButton"></i></button>
+    </div>
+ 
+    <div class="QR" id="qrCode">
+        <h3>Open a file</h3>
+        <img src="Images/File-1024.jpeg" alt="Scan me">
+    </div>
+
+    <div class="container-fluid">
+        <div class="group">
+            <div class="banner">
+                <p>Meet <br> <span>best of durban</span> <br>Autobody repairer</p>
+                <img src="Images/IMG_3770.JPG">
+            </div>
+            <form id="form">
+                <h1>Visitors register</h1>
+
+                <div class="form-floating mb-4">
+                    <input type="text" name="Name" placeholder="John"  id="name" class="form-control form-control-lg" required>
+                    <label>First Name</label>
+                </div>
+
+                <div class="form-floating mb-4">
+                    <input type="text" name="Surname" placeholder="Smith" class="form-control form-control-lg" required>
+                    <label>Last Name</label>
+                </div>
+
+                <div class="input-group mb-4">
+                    <div class="input-group-text">+27</div>
+                    <input type="text" name="Phone" class="form-control form-control-lg" required>
+                </div>
+
+                <div class="form-floating mb-4">
+                    <input type="text" name="Email" placeholder="Sam@bbigfive.durban" class="form-control form-control-lg" required>
+                    <label>Email</label>
+                </div>
+                
+                <div class="form-floating mb-4">
+                    <input type="datetime-local" name="Date"  class="form-control form-control-lg" required>
+                    <label>Date</label>
+                </div>
+                
+                <Select name="Reason" class="form-select form-select-lg mb-4" required>
+                    <option value="Reason" disabled hidden selected>Reason for visit</option>
+                    <option value="Visit">Visit</option>
+                    <option value="Quotation">Quotation</option>
+                    <option value="Contructot">Contractor</option>
+                    <option value="Assessor">Assessor</option>
+                    <option value="Book-In">Book in for repaires</option>
+                    <option value="Tow">Tow company</option>
+                    <option value="Meeting">Meeting</option>
+                    <option value="Enquiries">Enquiries</option>
+                    <option value="Delivery">Delivery</option>
+                    <option value="Appointment">Appointment</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Other">Other</option>
+                </Select>
+                <button type="submit" class="btn btn-primary w-100 btn-lg">Submit</button>
+            </form>
+        </div>  
+    </div>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbw_V6NE5qVp2haw4xSek9P-NvTQtvNSigefsGx3I2cZTsVCHuq_9RAtpXCkUnjV3DCu/exec";
+        const form = document.getElementById("form");
+
+        form.addEventListener("submit", e => {
+        e.preventDefault();
+
+        fetch(scriptURL, {
+            method: "POST",
+            body: new FormData(form)
+        })
+        .then(response => alert("Form submitted."))
+        .catch(error => alert("Error submitting form"));
+        document.getElementById("form").reset();
+        });
+
+        const QR = document.getElementById("qrCode");
+        const menu = document.getElementById("menuButton");
+
+        menuButton.onclick = function(){
+            QR.classList.toggle("active");
+        }
+
+        let changeIcon = document.querySelector("button");
+        let icon = changeIcon.querySelector(".fa-bars");
+
+        changeIcon.onclick = function (){
+            if(icon.classList.contains("fa-bars")){
+                icon.classList.replace("fa-bars","fa-times");
+            }
+            else{
+                icon.classList.replace("fa-times","fa-bars");
+            }
+        }
+    </script>
+</body>
+
+</html>
+
